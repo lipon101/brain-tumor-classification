@@ -27,10 +27,10 @@ An academic data mining project engineered to tackle the diagnostic challenge of
 | **Md Aslam Hossain** | Dataset Processing & Augmentations | `22235103230` |
 | **Jobayer Hossan** | Evaluation Workflows & Validation | `22235103236` |
 
-### � Project Source
+### 🎯 Project Source
 **Kaggle Notebook & Python Code:** [https://www.kaggle.com/code/mdtorikulislamlipon/brain-tumor-classification](https://www.kaggle.com/code/mdtorikulislamlipon/brain-tumor-classification)
 
-### �🖥️ How to View the Presentation
+### 🖥️ How to View the Presentation
 This repository includes a custom-coded, highly interactive presentation built entirely in HTML/Tailwind CSS to ensure a premium, zero-dependency viewing experience.
 
 1. Double-click the **`index.html`** file.

@@ -1,0 +1,16 @@
+Thank you, Aslam. Hello everyone, my name is Lipon. 
+
+I will now explain the methodology and the brain behind our project: the Deep Learning models.
+
+When we started, we knew that a simple model would not be good enough for complex medical images like an MRI. So, we decided to use an advanced technique called a "Dual-Branch Ensemble Model." This means we combined the power of two of the best AI models available today.
+
+The first model is EfficientNetV2B0. This model is very fast, lightweight, and incredibly good at picking up fine details and patterns in the brain scans. 
+The second model is ResNet50V2. This model uses a deep architecture that is very strong at understanding the overall structure of the image without losing important data.
+
+By combining them side-by-side, our system looks at the MRI scan through two different lenses at the same time. The features from both models are then combined to make one final, highly accurate prediction.
+
+Technically speaking, we extract feature maps from both networks simultaneously, concatenate their outputs into a single vector, and pass them through dense classification layers. This parallel pipeline ensures we capture both micro-levels of cellular details and the macro-structures of the brain without losing any critical medical data!
+
+We trained this model over many epochs, carefully monitoring the loss and accuracy to make sure it was learning perfectly.
+
+Our approach proves that two AI models working together are much better than one. Next, Jobayer will share our final results and give you a quick showcase of how it works in real life. Thank you.

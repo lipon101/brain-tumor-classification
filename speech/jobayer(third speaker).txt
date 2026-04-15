@@ -1,0 +1,14 @@
+Thank you, Lipon. Hello everyone, I am Jobayer. 
+
+I am very excited to share the final results of our hard work. After training our dual-branch model on the 10,464 MRI images, the results were amazing. 
+
+Our model achieved a state-of-the-art accuracy of 98.66%! 
+This means that almost 99 times out of 100, our system correctly identifies the exact type of brain tumor, or correctly sees that the patient is completely healthy. 
+
+If you look at our "Live Inference Showcase" slide, you can see how this works in reality. When we give the system a raw, unseen MRI image, it processes the image in seconds and gives the correct diagnosis with high confidence. It is very fast and very reliable. 
+
+In conclusion, our data mining project shows that deep learning is a powerful tool for the medical field. Our model is fast, highly accurate, and could one day be used in hospitals to assist doctors, reduce human error, and save valuable time. 
+
+All our code, models, and this presentation are available on our GitHub repository for anyone who wants to learn from our work. 
+
+Thank you so much for your time and attention. We are now happy to answer any questions you might have.

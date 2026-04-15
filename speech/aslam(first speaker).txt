@@ -1,0 +1,11 @@
+Hello everyone, and welcome to our presentation. My name is Aslam, and together with my team members, Lipon and Jobayer, we are excited to present our Academic Data Mining Project: Brain Tumor Classification.
+
+To start, why did we choose this topic? Brain tumors are very dangerous and life-threatening. Early and accurate detection is extremely important to save lives. However, checking MRI scans manually can be slow, and sometimes even expert doctors can make mistakes. This is where Artificial Intelligence can help.
+
+Our goal was to build an AI system that can read an MRI scan and accurately find out what kind of tumor it is. 
+
+To train our AI, we needed a lot of data. We used a large, high-quality dataset that contains 10,464 Brain MRI images. These images are divided into four categories: Glioma, Meningioma, Pituitary tumor, and a "No Tumor" class for healthy brains. 
+
+We spent a lot of time collecting and optimizing this data. We resized the images, normalized the pixel values, and split the data perfectly so our AI could learn properly without memorizing the answers. 
+
+This strong foundation of data is what makes our project successful. Now, I will pass the floor to my teammate Lipon, who will explain the exciting AI models we used to process this data. Thank you.

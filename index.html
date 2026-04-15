@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor AI Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFA;
+            color: #171717;
+            overflow: hidden;
+        }
+        .slide-content {
+            opacity: 0;
+            transform: scale(0.97) translateY(1.5rem);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            visibility: hidden;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .slide-content.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+            visibility: visible;
+            z-index: 10;
+        }
+        /* Premium Background Elements */
+        .bg-mesh-pattern {
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,0.03) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.03) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.03) 0, transparent 50%);
+        }
+        .grid-overlay {
+            background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Projector Readability & Contrast Enhancements */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Deepen mid-grays so they don't wash out on projectors */
+        .text-neutral-500 { color: #525252 !important; }
+        .text-neutral-400 { color: #6b6b6b !important; }
+        /* Make borders slightly more visible under bright projector light */
+        .border-neutral-200 { border-color: #d4d4d4 !important; }
+        .border-neutral-100 { border-color: #e5e5e5 !important; }
+        /* Add subtle depth to shadows to maintain card separation */
+        .shadow-sm { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04) !important; }
+    </style>
+</head>
+<body class="antialiased w-screen h-screen relative bg-mesh-pattern selection:bg-neutral-200 selection:text-neutral-900">
+
+    <div class="absolute inset-0 grid-overlay pointer-events-none z-0"></div>
+
+    <!-- Top Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-neutral-100 z-50">
+        <div id="progress-bar" class="h-full bg-neutral-900 transition-all duration-700 ease-out" style="width: 0%;"></div>
+    </div>
+
+    <!-- Presentation Container -->
+    <main class="relative w-full h-full flex items-center justify-center z-10">
+
+        <!-- Slide 1: Introduction -->
+        <div class="slide-content active" id="slide-0">
+            <div class="max-w-4xl w-full text-center flex flex-col items-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-neutral-200 text-xs font-medium text-neutral-600 mb-8 shadow-sm backdrop-blur-sm">
+                    <iconify-icon icon="solar:book-bookmark-linear" style="stroke-width: 1.5;"></iconify-icon>
+                    Academic Data Mining Project
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-medium tracking-tight bg-gradient-to-b from-neutral-900 to-neutral-500 bg-clip-text text-transparent mb-6 leading-tight">
+                    Deep Learning-Based Brain Tumor <br> Classification System
+                </h1>
+                
+                <p class="text-lg md:text-xl text-neutral-500 font-normal mb-14 max-w-2xl leading-relaxed">
+                    An advanced ensemble architectural approach achieving state-of-the-art precision in multi-class tumor detection.
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Team Members -->
+        <div class="slide-content" id="slide-0-b">
+            <div class="max-w-5xl w-full">
+                <div class="mb-14 text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 mb-6">
+                        <iconify-icon icon="solar:users-group-two-rounded-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        Research Team
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-4">Project Team Members</h2>
+                    <p class="text-base text-neutral-500 max-w-2xl">B.Sc. Undergraduate Students | Academic Data Mining Project Presentation</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Member 1 -->
+                    <div class="bg-white border border-neutral-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-neutral-50 border border-neutral-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <iconify-icon icon="solar:user-circle-bold-duotone" class="text-3xl text-neutral-400" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium tracking-tight text-neutral-900 mb-1">Md. Torikul Islam Lipon</h3>
+                        <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">ID: 22235103255</p>
+                        <p class="text-xs text-neutral-400">Chief architect of the ensemble deep learning pipeline and modeling.</p>
+                    </div>
+                    
+                    <!-- Member 2 -->
+                    <div class="bg-white border border-neutral-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-neutral-50 border border-neutral-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <iconify-icon icon="solar:user-circle-bold-duotone" class="text-3xl text-neutral-400" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium tracking-tight text-neutral-900 mb-1">Jobayer Hossan</h3>
+                        <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">ID: 22235103236</p>
+                        <p class="text-xs text-neutral-400">Led MRI dataset processing and medical-grade augmentation strategies.</p>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="bg-white border border-neutral-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-neutral-50 border border-neutral-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <iconify-icon icon="solar:user-circle-bold-duotone" class="text-3xl text-neutral-400" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium tracking-tight text-neutral-900 mb-1">Md Aslam Hossain</h3>
+                        <p class="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-3">ID: 22235103230</p>
+                        <p class="text-xs text-neutral-400">Responsible for rigorous evaluation workflows and clinical validations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide x: Problem Statement -->
+        <div class="slide-content" id="slide-1">
+            <div class="max-w-5xl w-full">
+                <div class="mb-14 text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 mb-6">
+                        <iconify-icon icon="solar:danger-triangle-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        Problem Statement
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-4">The Diagnostic Challenge</h2>
+                    <p class="text-base text-neutral-500 max-w-2xl">Why current manual MRI analysis methods necessitate an AI-driven transformation.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white border border-neutral-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow group">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-50 border border-neutral-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <iconify-icon icon="solar:clock-circle-linear" class="text-2xl text-neutral-600" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium tracking-tight text-neutral-900 mb-3">Time-Intensive</h3>
+                        <p class="text-sm text-neutral-500 leading-relaxed">Manual analysis by radiologists requires 30-45 minutes per comprehensive scan, leading to severe diagnostic delays.</p>
+                    </div>
+                    
+                    <div class="bg-white border border-neutral-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow group">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-50 border border-neutral-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <iconify-icon icon="solar:users-group-two-rounded-linear" class="text-2xl text-neutral-600" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium tracking-tight text-neutral-900 mb-3">Subjective Variance</h3>
+                        <p class="text-sm text-neutral-500 leading-relaxed">Inter-observer variability results in a 15-20% disagreement rate between different clinical specialists.</p>
+                    </div>
+
+                    <div class="bg-white border border-neutral-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow group">
+                        <div class="w-12 h-12 rounded-2xl bg-neutral-50 border border-neutral-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <iconify-icon icon="solar:hospital-linear" class="text-2xl text-neutral-600" style="stroke-width: 1.5;"></iconify-icon>
+                        </div>
+                        <h3 class="text-xl font-medium tracking-tight text-neutral-900 mb-3">Resource Scarcity</h3>
+                        <p class="text-sm text-neutral-500 leading-relaxed">A global shortage of trained neuro-radiologists severely limits patient access to timely, life-saving care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Objectives -->
+        <div class="slide-content" id="slide-2">
+            <div class="max-w-5xl w-full">
+                <div class="mb-14 text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 mb-6">
+                        <iconify-icon icon="solar:target-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        Objectives
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-4">Core Research Goals</h2>
+                    <p class="text-base text-neutral-500 max-w-2xl">Establishing a new standard for automated neurological diagnostics.</p>
+                </div>
+
+                <div class="flex flex-col gap-4 max-w-3xl mx-auto">
+                    <div class="bg-white border border-neutral-200 p-6 rounded-2xl shadow-sm flex items-center gap-6">
+                        <div class="text-4xl font-medium tracking-tight text-neutral-200 shrink-0">01</div>
+                        <div>
+                            <h3 class="text-lg font-medium tracking-tight text-neutral-900 mb-1">Superior Accuracy</h3>
+                            <p class="text-sm text-neutral-500">Develop a model capable of surpassing human-level accuracy (>98%) in multi-class tumor classification.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-neutral-200 p-6 rounded-2xl shadow-sm flex items-center gap-6">
+                        <div class="text-4xl font-medium tracking-tight text-neutral-200 shrink-0">02</div>
+                        <div>
+                            <h3 class="text-lg font-medium tracking-tight text-neutral-900 mb-1">Rapid Inference</h3>
+                            <p class="text-sm text-neutral-500">Optimize architecture to deliver complete diagnostic results in under 3 seconds per MRI scan.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-neutral-200 p-6 rounded-2xl shadow-sm flex items-center gap-6">
+                        <div class="text-4xl font-medium tracking-tight text-neutral-200 shrink-0">03</div>
+                        <div>
+                            <h3 class="text-lg font-medium tracking-tight text-neutral-900 mb-1">Clinical Robustness</h3>
+                            <p class="text-sm text-neutral-500">Ensure high generalization and minimize false positives to maintain trust in clinical deployment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Methodology - Preprocessing -->
+        <div class="slide-content" id="slide-3">
+            <div class="max-w-5xl w-full">
+                <div class="mb-12 flex flex-col items-center text-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 mb-6">
+                        <iconify-icon icon="solar:settings-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        Methodology: Data Preprocessing
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-4">Data & Preprocessing</h2>
+                    <p class="text-base text-neutral-500 max-w-2xl">Curating and optimizing 10,464 MRI scans for neural network ingestion.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <!-- Dataset Grid -->
+                    <div class="grid grid-cols-2 gap-4 w-3/4 mx-auto">
+                        <div class="aspect-square bg-white border border-neutral-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-sm">
+                            <iconify-icon icon="solar:scanner-linear" class="text-3xl text-neutral-400 mb-3" style="stroke-width: 1.5;"></iconify-icon>
+                            <span class="text-sm font-medium text-neutral-900">Glioma</span>
+                            <span class="text-xs text-neutral-500 mt-1">2,726 scans</span>
+                        </div>
+                        <div class="aspect-square bg-white border border-neutral-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-sm">
+                            <iconify-icon icon="solar:scanner-linear" class="text-3xl text-neutral-400 mb-3" style="stroke-width: 1.5;"></iconify-icon>
+                            <span class="text-sm font-medium text-neutral-900">Meningioma</span>
+                            <span class="text-xs text-neutral-500 mt-1">2,737 scans</span>
+                        </div>
+                        <div class="aspect-square bg-white border border-neutral-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-sm">
+                            <iconify-icon icon="solar:health-linear" class="text-3xl text-neutral-400 mb-3" style="stroke-width: 1.5;"></iconify-icon>
+                            <span class="text-sm font-medium text-neutral-900">No Tumor</span>
+                            <span class="text-xs text-neutral-500 mt-1">2,300 scans</span>
+                        </div>
+                        <div class="aspect-square bg-white border border-neutral-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center shadow-sm">
+                            <iconify-icon icon="solar:scanner-linear" class="text-3xl text-neutral-400 mb-3" style="stroke-width: 1.5;"></iconify-icon>
+                            <span class="text-sm font-medium text-neutral-900">Pituitary</span>
+                            <span class="text-xs text-neutral-500 mt-1">2,701 scans</span>
+                        </div>
+                    </div>
+
+                    <!-- Processing Steps -->
+                    <div class="space-y-6">
+                        <div class="bg-white border border-neutral-200 rounded-3xl p-8 shadow-sm">
+                            <h4 class="text-xs font-medium uppercase tracking-widest text-neutral-400 mb-6">Preprocessing Pipeline</h4>
+                            
+                            <div class="space-y-5">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+                                        <iconify-icon icon="solar:maximize-square-linear" class="text-neutral-600" style="stroke-width: 1.5;"></iconify-icon>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-medium text-neutral-900">Standardization</h5>
+                                        <p class="text-xs text-neutral-500 mt-1">Images resized to uniform 256x256 pixel dimensions.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+                                        <iconify-icon icon="solar:magic-stick-3-linear" class="text-neutral-600" style="stroke-width: 1.5;"></iconify-icon>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-medium text-neutral-900">Normalization</h5>
+                                        <p class="text-xs text-neutral-500 mt-1">Pixel intensity scaling to [0, 1] for stable gradient descent.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center shrink-0">
+                                        <iconify-icon icon="solar:gallery-edit-linear" class="text-neutral-600" style="stroke-width: 1.5;"></iconify-icon>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-medium text-neutral-900">Augmentation</h5>
+                                        <p class="text-xs text-neutral-500 mt-1">Random rotations (30°), zoom (0.25), shifts (0.2), shear (0.15), flips, & brightness tuning (0.6-1.4).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Methodology - Training -->
+        <div class="slide-content" id="slide-4">
+            <div class="max-w-5xl w-full">
+                <div class="mb-14 text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 mb-6">
+                        <iconify-icon icon="solar:cpu-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        Methodology: Model Training
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-4">Dual-Branch Ensemble Architecture</h2>
+                    <p class="text-base text-neutral-500">Concatenated features from EfficientNetV2B0 & ResNet50V2 with heavy regularization (Dropout 0.6, 0.5, 0.4).</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-10">
+                    <!-- Input -->
+                    <div class="bg-white border border-neutral-200 rounded-2xl p-5 shadow-sm flex flex-col items-center w-40">
+                        <iconify-icon icon="solar:gallery-linear" class="text-2xl text-neutral-400 mb-2" style="stroke-width: 1.5;"></iconify-icon>
+                        <span class="text-sm font-medium text-neutral-900">Input MRI</span>
+                    </div>
+
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-xl text-neutral-300 hidden md:block" style="stroke-width: 1.5;"></iconify-icon>
+
+                    <!-- Models -->
+                    <div class="flex flex-col gap-4 w-48">
+                        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl p-4 shadow-md flex flex-col items-center text-white relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
+                            <span class="text-sm font-medium relative z-10">EfficientNetV2B0</span>
+                        </div>
+                        <div class="bg-white border border-neutral-200 rounded-2xl p-4 shadow-sm flex flex-col items-center">
+                            <span class="text-sm font-medium text-neutral-900">ResNet50V2</span>
+                        </div>
+                    </div>
+
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-xl text-neutral-300 hidden md:block" style="stroke-width: 1.5;"></iconify-icon>
+
+                    <!-- Concatenation -->
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-2xl p-5 shadow-sm flex flex-col items-center w-40">
+                        <iconify-icon icon="solar:layers-linear" class="text-2xl text-neutral-400 mb-2" style="stroke-width: 1.5;"></iconify-icon>
+                        <span class="text-sm font-medium text-neutral-900">Feature Fusion</span>
+                    </div>
+
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-xl text-neutral-300 hidden md:block" style="stroke-width: 1.5;"></iconify-icon>
+
+                    <!-- Output -->
+                    <div class="bg-white border border-neutral-200 rounded-2xl p-5 shadow-sm flex flex-col items-center border-t-4 border-t-neutral-900 w-40">
+                        <iconify-icon icon="solar:target-linear" class="text-2xl text-neutral-900 mb-2" style="stroke-width: 1.5;"></iconify-icon>
+                        <span class="text-sm font-medium text-neutral-900">Classification</span>
+                    </div>
+                </div>
+
+                <!-- Model Evaluation -->
+                <div class="max-w-2xl mx-auto bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm flex items-center justify-between">
+                    <div>
+                        <h4 class="text-sm font-medium text-neutral-900 mb-1">Two-Phase Training Process</h4>
+                        <p class="text-xs text-neutral-500">Phase 1: Freeze base (Learn classifier head) • Phase 2: Unfreeze base (Full fine-tuning)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide x: Methodology - Evaluation -->
+        <div class="slide-content" id="slide-4-b">
+            <div class="max-w-5xl w-full">
+                <div class="mb-14 text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 mb-6">
+                        <iconify-icon icon="solar:ruler-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        Methodology: Model Evaluation
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-4">Training & Evaluation Configurations</h2>
+                    <p class="text-base text-neutral-500">Rigorous testing sets & adaptive learning strategies.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white border border-neutral-200 p-8 rounded-3xl shadow-sm">
+                        <h3 class="text-xl font-medium text-neutral-900 mb-4">Data Partitioning</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between border-b border-neutral-100 pb-3">
+                                <span class="text-sm font-medium text-neutral-600">Training Set</span>
+                                <span class="text-sm font-bold text-neutral-900">70%</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-neutral-100 pb-3">
+                                <span class="text-sm font-medium text-neutral-600">Validation Set</span>
+                                <span class="text-sm font-bold text-neutral-900">15%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium text-neutral-600">Testing Set</span>
+                                <span class="text-sm font-bold text-neutral-900">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-neutral-200 p-8 rounded-3xl shadow-sm">
+                        <h3 class="text-xl font-medium text-neutral-900 mb-4">Hyperparameters & Callbacks</h3>
+                        <ul class="space-y-4 text-sm text-neutral-600">
+                            <li class="flex items-center gap-3">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-neutral-400"></iconify-icon>
+                                <span><strong>Optimizer:</strong> Adam with Cosine Annealing LR</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-neutral-400"></iconify-icon>
+                                <span><strong>Loss Function:</strong> Categorical Cross-Entropy</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <iconify-icon icon="solar:check-circle-linear" class="text-neutral-400"></iconify-icon>
+                                <span><strong>Callbacks:</strong> Early Stopping (patience: 12), Model Checkpoint (max val_accuracy), & ReduceLROnPlateau</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Results -->
+        <div class="slide-content" id="slide-5">
+            <div class="max-w-4xl w-full text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 mb-10">
+                    <iconify-icon icon="solar:chart-square-linear" style="stroke-width: 1.5;"></iconify-icon>
+                    Result Analysis
+                </div>
+                
+                <div class="flex justify-center mb-12">
+                    <div class="relative w-72 h-72 rounded-full bg-white border border-neutral-100 shadow-2xl flex flex-col items-center justify-center z-10">
+                        <div class="absolute inset-0 rounded-full border border-neutral-900/5 scale-105"></div>
+                        <span class="text-7xl font-medium tracking-tight text-neutral-900 mb-2">98.66<span class="text-4xl text-neutral-400">%</span></span>
+                        <span class="text-sm font-medium text-neutral-500 tracking-wide uppercase">Overall Accuracy</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
+                    <div class="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm flex flex-col items-center transition-transform hover:-translate-y-1 duration-300">
+                        <div class="text-3xl font-medium text-neutral-900 tracking-tight mb-2"><span class="text-2xl text-neutral-500">📉</span> Evaluated</div>
+                        <div class="text-xs text-neutral-500 uppercase tracking-widest font-medium text-center">Test Data Loss</div>
+                    </div>
+                    <div class="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm flex flex-col items-center transition-transform hover:-translate-y-1 duration-300">
+                        <div class="text-3xl font-medium text-neutral-900 tracking-tight mb-2"><span class="text-2xl text-neutral-500">📊</span> Matrix</div>
+                        <div class="text-xs text-neutral-500 uppercase tracking-widest font-medium text-center">4x4 Confusion Matrix</div>
+                    </div>
+                    <div class="bg-white border border-neutral-200 rounded-3xl p-6 shadow-sm flex flex-col items-center transition-transform hover:-translate-y-1 duration-300">
+                        <div class="text-3xl font-medium text-neutral-900 tracking-tight mb-2"><span class="text-2xl text-neutral-500">🎯</span> Precision</div>
+                        <div class="text-xs text-neutral-500 uppercase tracking-widest font-medium text-center">Classification Report</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide x: Project Showcase -->
+        <div class="slide-content" id="slide-5-b">
+            <div class="max-w-5xl w-full">
+                <div class="mb-5 text-center flex flex-col items-center -mt-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-xs font-medium text-emerald-600 border border-emerald-100 mb-3">
+                        <iconify-icon icon="solar:monitor-camera-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        Live Inference Showcase
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-medium tracking-tight text-neutral-900 mb-2">Sample Predictions</h2>
+                    <p class="text-sm text-neutral-500 max-w-2xl">Evaluating unseen MRI scans through our trained Deep Learning ensemble.</p>
+                </div>
+
+                <div class="w-full max-w-5xl mx-auto bg-white rounded-2xl p-2 border border-neutral-200 shadow-sm hover:shadow-md transition-shadow duration-500">
+                    <div class="relative rounded-xl overflow-hidden bg-neutral-50 flex items-center justify-center border border-neutral-100">
+                        <img src="assets/sample_predictions.png" alt="Raw Kaggle Inference Output" class="w-full h-auto max-h-[50vh] object-contain transform transition-transform duration-700 hover:scale-[1.01]">
+                    </div>
+                </div>
+
+                <div class="mt-5 flex justify-center text-center relative z-30 mb-8">
+                    <a href="https://www.kaggle.com/code/mdtorikulislamlipon/brain-tumor-classification" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#20BEFF]/10 text-[#20BEFF] border border-[#20BEFF]/30 rounded-xl text-sm font-medium hover:bg-[#20BEFF]/20 transition-colors shadow-sm pointer-events-auto">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.009-1.448 1.374v4.532c0 .25-.117.375-.351.375H5.061c-.211 0-.316-.125-.316-.375V.361c0-.211.105-.316.316-.316h2.875c.234 0 .351.105.351.316v15.22l4.967-5.072c.164-.165.34-.247.527-.247h3.291c.187 0 .269.059.246.176-.023.094-.105.199-.246.316L11.53 15.385l6.989 8.005c.187.188.289.345.306.469z"/></svg>
+                        View Full Project Code on Kaggle
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Conclusion -->
+        <div class="slide-content" id="slide-6">
+            <div class="max-w-5xl w-full">
+                <div class="mb-14 flex flex-col items-center text-center">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 text-xs font-medium text-neutral-600 mb-6">
+                        <iconify-icon icon="solar:flag-linear" style="stroke-width: 1.5;"></iconify-icon>
+                        Conclusion & Future Work
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-neutral-900 mb-4">Academic Project Findings</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white border border-neutral-200 rounded-3xl p-8 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-neutral-900"></div>
+                        <h3 class="text-xl font-medium text-neutral-900 mb-6 flex items-center gap-3">
+                            <iconify-icon icon="solar:check-circle-linear" class="text-2xl text-neutral-400" style="stroke-width: 1.5;"></iconify-icon>
+                            Key Achievements
+                        </h3>
+                        <ul class="space-y-5">
+                            <li class="flex items-start gap-4">
+                                <div class="w-1.5 h-1.5 rounded-full bg-neutral-900 mt-2 shrink-0"></div>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Developed a state-of-the-art ensemble model achieving 98.66% accuracy across four distinct classifications.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-1.5 h-1.5 rounded-full bg-neutral-900 mt-2 shrink-0"></div>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Dramatically reduced false positive rates, meeting strict requirements for sensitive medical diagnoses.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-1.5 h-1.5 rounded-full bg-neutral-900 mt-2 shrink-0"></div>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Demonstrated resilient generalization capabilities without overfitting on novel data sets.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-neutral-50 border border-neutral-200 rounded-3xl p-8 shadow-sm">
+                        <h3 class="text-xl font-medium text-neutral-900 mb-6 flex items-center gap-3">
+                            <iconify-icon icon="solar:rocket-linear" class="text-2xl text-neutral-400" style="stroke-width: 1.5;"></iconify-icon>
+                            Future Roadmap
+                        </h3>
+                        <ul class="space-y-5">
+                            <li class="flex items-start gap-4">
+                                <div class="w-1.5 h-1.5 rounded-full bg-neutral-400 mt-2 shrink-0"></div>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Expand architectural capabilities to natively support 3D MRI volumetric data processing.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-1.5 h-1.5 rounded-full bg-neutral-400 mt-2 shrink-0"></div>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Integrate Explainable AI (XAI) overlays to visually validate algorithmic decision-making for clinicians.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-1.5 h-1.5 rounded-full bg-neutral-400 mt-2 shrink-0"></div>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Optimize the pipeline for lightweight edge-computing deployment in resource-constrained environments.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center text-xs font-medium text-neutral-400 tracking-widest uppercase">
+                    Thank You For Your Attention
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-8 left-0 w-full flex items-center justify-between px-10 z-50 pointer-events-none">
+        
+        <!-- Prev Button -->
+        <button id="btn-prev" class="pointer-events-auto w-12 h-12 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:border-neutral-300 shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 disabled:opacity-30 disabled:cursor-not-allowed">
+            <iconify-icon icon="solar:arrow-left-linear" class="text-xl" style="stroke-width: 1.5;"></iconify-icon>
+        </button>
+
+        <!-- Pagination Dots -->
+        <div class="pointer-events-auto flex items-center gap-3 bg-white/80 backdrop-blur-md px-5 py-3 border border-neutral-200 rounded-full shadow-sm" id="pagination-dots">
+            <!-- Dynamically injected -->
+        </div>
+
+        <!-- Next Button -->
+        <button id="btn-next" class="pointer-events-auto w-12 h-12 flex items-center justify-center rounded-full bg-neutral-900 text-white hover:bg-neutral-800 shadow-lg hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 disabled:opacity-30 disabled:cursor-not-allowed">
+            <iconify-icon icon="solar:arrow-right-linear" class="text-xl" style="stroke-width: 1.5;"></iconify-icon>
+        </button>
+    </div>
+
+    <!-- Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide-content');
+            const totalSlides = slides.length;
+            let currentSlide = 0;
+
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+            const dotsContainer = document.getElementById('pagination-dots');
+            const progressBar = document.getElementById('progress-bar');
+
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-all duration-500 focus:outline-none ${i === 0 ? 'bg-neutral-900 scale-125' : 'bg-neutral-300 hover:bg-neutral-400'}`;
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            function updateUI() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                btnPrev.disabled = currentSlide === 0;
+                if(currentSlide === totalSlides - 1) {
+                    btnNext.innerHTML = '<iconify-icon icon="solar:check-linear" class="text-xl" style="stroke-width: 1.5;"></iconify-icon>';
+                } else {
+                    btnNext.innerHTML = '<iconify-icon icon="solar:arrow-right-linear" class="text-xl" style="stroke-width: 1.5;"></iconify-icon>';
+                }
+
+                const dots = dotsContainer.children;
+                for (let i = 0; i < dots.length; i++) {
+                    if (i === currentSlide) {
+                        dots[i].className = 'w-2 h-2 rounded-full transition-all duration-500 focus:outline-none bg-neutral-900 scale-125';
+                    } else {
+                        dots[i].className = 'w-2 h-2 rounded-full transition-all duration-500 focus:outline-none bg-neutral-300 hover:bg-neutral-400';
+                    }
+                }
+
+                const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+            }
+
+            function goToSlide(index) {
+                if (index >= 0 && index < totalSlides) {
+                    currentSlide = index;
+                    updateUI();
+                }
+            }
+
+            btnNext.addEventListener('click', () => {
+                if(currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+            });
+            
+            btnPrev.addEventListener('click', () => goToSlide(currentSlide - 1));
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'Space') {
+                    if(currentSlide < totalSlides - 1) goToSlide(currentSlide + 1);
+                } else if (e.key === 'ArrowLeft') {
+                    goToSlide(currentSlide - 1);
+                }
+            });
+
+            updateUI();
+        });
+    </script>
+</body>
+</html>
